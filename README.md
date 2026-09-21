@@ -323,7 +323,7 @@ This reflects real-world DevOps responsibilities in production environments.
 
 # 👨‍💻 Author
 
-**Franklin Chinonso Osuji**  
+**Franklin Chinonso Osuji**
 AWS-Certified Cloud & DevOps Engineer
 
 Specializing in:
@@ -332,5 +332,3 @@ Specializing in:
 - Terraform
 - CI/CD Automation
 - Observability Engineering
-  
-
