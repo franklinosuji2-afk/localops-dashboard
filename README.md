@@ -227,7 +227,7 @@ http://localhost:3000
 ## Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/franklinosuji2-afk/localops-dashboard.git
 cd localops-dashboard
 ```
 
@@ -330,3 +330,4 @@ Specializing in:
 - CI/CD Automation
 - Observability Engineering
   
+
