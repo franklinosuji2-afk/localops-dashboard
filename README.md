@@ -1,4 +1,4 @@
-﻿# 🚀 LocalOps Dashboard
+# 🚀 LocalOps Dashboard
 
 LocalOps Dashboard is a production-inspired full-stack DevOps platform built to demonstrate modern cloud-native engineering practices including containerization, CI/CD automation, Kubernetes orchestration, and observability.
 
@@ -171,9 +171,12 @@ Pipeline stages include:
 ### 3. Container Build
 - Docker image creation
 
-### 4. Deployment
-- Push artifacts
-- Kubernetes rollout
+### 4. Container Publishing
+
+- Build container images
+- Publish container images to GitHub Container Registry (GHCR)
+
+Kubernetes deployment is available as a separate manual/local workflow.
 
 Workflow files:
 
