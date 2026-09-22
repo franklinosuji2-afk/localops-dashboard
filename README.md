@@ -1,334 +1,76 @@
-# 🚀 LocalOps Dashboard
+# LocalOps Dashboard
 
-LocalOps Dashboard is a production-inspired full-stack DevOps platform built to demonstrate modern cloud-native engineering practices including containerization, CI/CD automation, Kubernetes orchestration, and observability.
+LocalOps Dashboard is a local-first operations dashboard for monitoring containerized applications and infrastructure workflows.
 
-The project simulates how modern engineering teams deploy, monitor, and scale microservices in production environments.
+Architecture
+Developer
+   |
+   v
+LocalOps Dashboard
+   |
+   +-- Application services
+   |
+   +-- Docker Compose
+   |
+   `-- Kubernetes
 
----
+The project is designed to demonstrate practical DevOps workflows without requiring a paid cloud environment.
 
-## 📌 Project Goal
+Technology Stack
+Docker
+Docker Compose
+Kubernetes
+GitHub Actions
+GitHub Container Registry
+Linux
+Shell scripting
+Infrastructure and operations workflows
+CI/CD
 
-This project was built to showcase practical DevOps skills across the full delivery lifecycle:
+The repository contains two GitHub Actions workflows:
 
-- Application development
-- Containerization
-- Infrastructure orchestration
-- CI/CD automation
-- Monitoring & observability
-- Production readiness
+.github/workflows/ci.yml
+.github/workflows/docker-ci.yml
 
-The objective is simple:
+The workflows provide automated validation and container image build and publishing workflows.
 
-> Build software the way real engineering teams ship to production.
+Container images can be published to GitHub Container Registry (GHCR).
 
----
+Kubernetes
 
-# 🏗 Architecture
+Kubernetes manifests are included for local deployment and experimentation.
 
-```text
-Frontend (React + Vite)
-        |
-        v
-Backend API (Node.js + Express)
-        |
-        v
-Docker Containers
-        |
-        v
-Kubernetes Cluster
-        |
-        v
-Observability Stack
-(Prometheus + Grafana)
-```
+A local Kubernetes cluster can be used with tools such as:
 
----
+kind
+minikube
+Docker Desktop Kubernetes
+Local Development
 
-# ⚙️ Tech Stack
+Clone the repository:
 
-## Frontend
-- JavaScript
-- React
-- Vite
-- CSS
-
-## Backend
-- Node.js
-- Express.js
-
-## DevOps / Infrastructure
-- Docker
-- Docker Compose
-- Kubernetes
-- Helm
-
-## CI/CD
-- GitHub Actions
-
-## Monitoring
-- Prometheus
-- Grafana
-
----
-
-# ✨ Core Features
-
-## Frontend Dashboard
-- Modern responsive UI
-- Real-time system health display
-- Backend connectivity visualization
-
-## Backend API
-Provides operational endpoints for:
-
-- Health checks
-- Status reporting
-- Service metadata
-- Monitoring integration
-
-Example API response:
-
-```json
-{
-  "status": "healthy",
-  "service": "localops-backend"
-}
-```
-
----
-
-# 🐳 Containerization
-
-Both frontend and backend services are containerized using Docker.
-
-Benefits:
-- Environment consistency
-- Faster onboarding
-- Reproducible deployments
-- Simplified scaling
-
-Build images:
-
-```bash
-docker build -t localops-frontend ./frontend
-docker build -t localops-backend ./backend
-```
-
-Run full stack:
-
-```bash
-docker compose up --build
-```
-
----
-
-# ☸️ Kubernetes Deployment
-
-The application can be deployed into a local or cloud Kubernetes cluster.
-
-Resources include:
-
-- Deployments
-- Services
-- ConfigMaps
-- Helm Charts
-
-Deploy manually:
-
-```bash
-kubectl apply -f k8s/
-```
-
-Deploy with Helm:
-
-```bash
-helm install localops ./localops-chart
-```
-
-Check workloads:
-
-```bash
-kubectl get pods
-kubectl get svc
-```
-
----
-
-# 🔄 CI/CD Pipeline
-
-Automated pipelines are configured using GitHub Actions.
-
-Pipeline stages include:
-
-### 1. Code Validation
-- Linting
-- Static checks
-
-### 2. Build
-- Frontend build
-- Backend packaging
-
-### 3. Container Build
-- Docker image creation
-
-### 4. Container Publishing
-
-- Build container images
-- Publish container images to GitHub Container Registry (GHCR)
-
-Kubernetes deployment is available as a separate manual/local workflow.
-
-Workflow files:
-
-```text
-.github/workflows/
-├── ci.yml
-└── docker-ci.yml
-```
-
----
-
-# 📊 Observability Stack
-
-Production systems require visibility.
-
-LocalOps integrates:
-
-## Prometheus
-Collects metrics from services.
-
-Metrics include:
-- CPU usage
-- Request rate
-- Response latency
-- Error counts
-
-Access:
-
-```text
-http://localhost:9090
-```
-
-## Grafana
-Visualizes infrastructure and application metrics.
-
-Dashboards include:
-- Service health
-- Traffic patterns
-- Resource utilization
-
-Access:
-
-```text
-http://localhost:3000
-```
-
----
-
-# 🚀 Local Development
-
-## Clone Repository
-
-```bash
 git clone https://github.com/franklinosuji2-afk/localops-dashboard.git
 cd localops-dashboard
-```
 
----
+Run with Docker Compose where applicable:
 
-## Start Frontend
+docker compose up --build
+DevOps Focus
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+The project demonstrates:
 
-Runs on:
+Containerization
+CI/CD automation
+Kubernetes deployment
+Local infrastructure workflows
+Container image publishing
+Operational visibility
+Reproducible development environments
+Author
 
-```text
-http://localhost:5173
-```
+Franklin Osuji
 
----
+Cloud Infrastructure and DevOps Engineer
 
-## Start Backend
-
-```bash
-cd backend
-npm install
-node index.js
-```
-
-Runs on:
-
-```text
-http://localhost:4000
-```
-
----
-
-# 📂 Project Structure
-
-```text
-localops-dashboard/
-│
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── Dockerfile
-│
-├── backend/
-│   ├── index.js
-│   └── Dockerfile
-│
-├── .github/
-│   └── workflows/
-│
-├── docker-compose.yml
-└── README.md
-```
-
----
-
-# 📈 Engineering Concepts Demonstrated
-
-This project demonstrates practical experience with:
-
-- Full-stack application deployment
-- Container lifecycle management
-- Kubernetes orchestration
-- CI/CD automation
-- Monitoring and alerting
-- Infrastructure reliability
-- Production-grade DevOps workflows
-
----
-
-# 🎯 Why This Project Matters
-
-Many portfolio projects stop at “it runs on localhost.”
-
-LocalOps goes further by showing how applications are:
-
-- Built
-- Packaged
-- Deployed
-- Monitored
-- Scaled
-
-This reflects real-world DevOps responsibilities in production environments.
-
----
-
-# 👨‍💻 Author
-
-**Franklin Chinonso Osuji**
-AWS-Certified Cloud & DevOps Engineer
-
-Specializing in:
-- Cloud Infrastructure
-- Docker & Kubernetes
-- Terraform
-- CI/CD Automation
-- Observability Engineering
+GitHub: https://github.com/franklinosuji2-afk
+Portfolio: https://fc-dev.netlify.app/
